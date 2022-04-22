@@ -1,32 +1,50 @@
-import { Input } from './component/Input';
+
 import './App.css';
-import { useState } from 'react';
+import { Kitty } from './component/Kitty';
+import { Data } from './component/Data';
+
 
 
 function App() {
+  let data=[
+    {
+      date: new Date(),
+      text: 'I hope you enjoy learning React!',
+      author: {
+        name: 'Hello Kitty',
+        avatarUrl: 'http://placekitten.com/g/62/62',
+      },
+    },
   
-  let newDate=new Date();
-    let month = newDate.toLocaleString('en-US', {month: '2-digit'})
-    let day = newDate.toLocaleString('en-US', {day: '2-digit'})
-    let year = newDate.getFullYear()
-  let allDate=`${day}.${month}.${year}`
-
-  let[arr, newValue]=useState([])
-
-  function createApp(value){
-    newValue([...arr,{text: value, newDate: allDate}])
-  }
+  ]
+  let array = []
+  let img=[]
+  let id
+    data.map((i)=>{
+      id = Math.random().toString()
+      let normDate=i.date.toLocaleDateString()
+      
+      array.push({getDate: normDate, getText: i.text, newid: id})
+      
+      img.push({getUrl: i.author.avatarUrl, getName: i.author.name, newid: id})
+      return (
+        array, img
+      )
+    
+    })
   
   return (
     <div className="App">
-      <Input  func={createApp}/>
-      <div className='box'>
-        {arr.map((i)=><div className='text'><span>{i.newDate}</span><span>{i.text}</span></div>)}
+      
+      <div>
+        <Kitty url = {img}  />
+      
+        <Data getDatatext = {array}/>
       </div>
        
        
     </div>
-  );
+  )
 }
 
 export default App;

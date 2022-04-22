@@ -1,0 +1,21 @@
+.box{
+    width: 150px;
+    height: 150px;
+    background-color: greenyellow;
+    padding: 20px 10px 20px 10px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+}
+.img{
+    border-radius: 15px;
+    width: 100px;
+    height: 200px;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+h3:nth-child(2){
+    margin-top: 50px;
+}
